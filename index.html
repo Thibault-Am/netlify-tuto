@@ -1,15 +1,497 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <title>HOTEL ROOSVELT</title>
+        <meta charset="UTF-8" />    
+    </head>
+    <body>
+        <h1 class="text-center"><small>HOTEL ROOSVELT</small></h1>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script type="application/javascript" >
+            // utilisation d'une fonction pour dessiner les chambres
+            
+            // on peut écrire une fonction pour dessiner les grandes chambres
+            // et une fonction pour les suites
+            const ORIGINE_X = 400;
+            const ORIGINE_Y = 200;
+            
+            const LARGEUR = 75; // largeur d'une chambre
+            const HAUTEUR = 75; // longueur d'une chambre
+            const ECART = 15; // écart entre les chambres        
+            
+            // données sur les chambres
+            var tabChambresX = new Array(300);
+            tabChambresX[1] = ORIGINE_X;
+            tabChambresX[2] = ORIGINE_X;
+            tabChambresX[3] = ORIGINE_X + LARGEUR + ECART;
+            tabChambresX[4] = ORIGINE_X + LARGEUR + ECART;
+            tabChambresX[5] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART;            
+            tabChambresX[6] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[7] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[8] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[9] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[10] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;           
+            tabChambresX[11] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[12] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[13] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[14] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART; 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale-1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <title>Test Site Web Gratuit</title>
-</head>
+            tabChambresX[101] = ORIGINE_X;
+            tabChambresX[102] = ORIGINE_X + LARGEUR + ECART;
+            tabChambresX[103] = ORIGINE_X;
+            tabChambresX[104] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART;            
+            tabChambresX[105] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[106] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[107] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[108] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[109] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[110] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART; 
+            tabChambresX[111] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[112] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[113] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
 
-<body>
-    <h1>TEST SITE WEB GRATUIT</h1>
-</body>
+            tabChambresX[201] = ORIGINE_X;
+            tabChambresX[202] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[203] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[204] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;         
+            tabChambresX[205] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[206] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART; 
+            tabChambresX[207] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+            tabChambresX[208] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART; 
+            tabChambresX[209] = ORIGINE_X + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART + LARGEUR + ECART;
+ 
 
+            var tabChambresY = new Array(300);
+            tabChambresY[1] = ORIGINE_Y;
+            tabChambresY[2] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[3] = ORIGINE_Y;
+            tabChambresY[4] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[5] = ORIGINE_Y;
+            tabChambresY[6] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[7] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[8] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[9] = ORIGINE_Y;
+            tabChambresY[10] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART;
+            
+            tabChambresY[11] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART;
+            tabChambresY[12] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART + HAUTEUR + ECART;
+            tabChambresY[13] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART + HAUTEUR + ECART + HAUTEUR + ECART;
+            tabChambresY[14] = ORIGINE_Y;
+
+            tabChambresY[101] = ORIGINE_Y;
+            tabChambresY[102] = ORIGINE_Y;
+            tabChambresY[103] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[104] = ORIGINE_Y;
+            tabChambresY[105] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[106] = ORIGINE_Y;
+            tabChambresY[107] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[108] = ORIGINE_Y;
+            tabChambresY[109] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[110] = ORIGINE_Y;
+            
+            tabChambresY[111] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART;
+            tabChambresY[112] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART;
+            tabChambresY[113] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART + HAUTEUR + ECART;
+
+            tabChambresY[201] = ORIGINE_Y;
+            tabChambresY[202] = ORIGINE_Y;
+            tabChambresY[203] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[204] = ORIGINE_Y;
+            tabChambresY[205] = ORIGINE_Y + HAUTEUR + ECART;
+            tabChambresY[206] = ORIGINE_Y;
+            tabChambresY[207] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART;
+            tabChambresY[208] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART;;
+            tabChambresY[209] = ORIGINE_Y + HAUTEUR + ECART + HAUTEUR + ECART + HAUTEUR + ECART;
+           
+            var tabChambresType = new Array(300);
+            tabChambresType[1] = "normale";
+            tabChambresType[2] = "normale";
+            tabChambresType[3] = "normale";
+            tabChambresType[4] = "normale";
+            tabChambresType[5] = "grande horizontale";
+            tabChambresType[6] = "normale";
+            tabChambresType[7] = "normale";
+            tabChambresType[8] = "normale";
+            tabChambresType[9] = "normale";
+            tabChambresType[10] = "grande verticale";
+            tabChambresType[11] = "normale";
+            tabChambresType[12] = "normale";
+            tabChambresType[13] = "grande horizontale";
+            tabChambresType[14] = "reception";
+
+            tabChambresType[101] = "normale";
+            tabChambresType[102] = "normale";
+            tabChambresType[103] = "grande horizontale";
+            tabChambresType[104] = "normale";
+            tabChambresType[105] = "normale";
+            tabChambresType[106] = "normale";
+            tabChambresType[107] = "normale";
+            tabChambresType[108] = "normale";
+            tabChambresType[109] = "normale";
+            tabChambresType[110] = "grande verticale";
+            tabChambresType[111] = "normale";
+            tabChambresType[112] = "normale";
+            tabChambresType[113] = "suite";
+
+            tabChambresType[201] = "suite";
+            tabChambresType[202] = "grande horizontale";
+            tabChambresType[203] = "grande horizontale";
+            tabChambresType[204] = "normale";
+            tabChambresType[205] = "normale";
+            tabChambresType[206] = "grande verticale";
+            tabChambresType[207] = "normale";
+            tabChambresType[208] = "normale";
+            tabChambresType[209] = "suite";
+            
+
+            function affichage(){
+                var date = document.getElementById("laDate").value;
+                traiter(date);
+            }
+            function traiter(date) {
+
+                var etage = document.getElementById("choix-etage").value;  
+                var canevas = document.getElementById("canevas"); // canevas (toile) sur lequel on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = "white";
+                contexte.fillRect (ORIGINE_X, ORIGINE_Y, 500, 170);
+                contexte.fillRect (750, ORIGINE_Y, 200, 450);
+
+/////////////////////////////////////////////////////////////////RUE///////////////////////////////////////////////////////////////////
+
+                contexte.fillStyle = "rgb(180, 180, 180)";// ne pas oublier les guillemets
+                contexte.fillRect(200, 50, 1300, 100);
+                contexte.fillStyle = "black";
+                contexte.fillText("Rue", 800, 125);
+/////////////////////////////////////////////////////////////////Parc///////////////////////////////////////////////////////////////////
+
+
+                contexte.fillStyle = "lightgreen";// ne pas oublier les guillemets
+                contexte.fillRect(950, 170, 400, 700);
+                contexte.fillStyle = "black";
+                contexte.fillText("Parc", 1150, 700);
+
+/////////////////////////////////////////////////////////////////terrasse///////////////////////////////////////////////////////////////////
+
+                contexte.fillStyle = "lightgrey";// ne pas oublier les guillemets
+                contexte.fillRect(410, 380, 325, 70);
+                contexte.fillStyle = "black";
+                contexte.fillText("Terrasse", 550, 420);
+/////////////////////////////////////////////////////////////////Chataignier///////////////////////////////////////////////////////////////////     
+
+                var chataignier= 200    
+                for (let i = 0; i <9; i++) {
+
+                    contexte.beginPath(); // dÃ©but du tracÃ©
+                    contexte.fillStyle = "rgb(106, 65, 0)";
+                    contexte.arc(250, chataignier, 10, 0, 2*Math.PI, true); // 120=>x; 200=>y; 30 => rayon; 0=>angle de dÃ©part; 2*Math.PI=>angle de fin; true=> sens de rotation
+                    contexte.fill(); // dessin de l'arc avec remplissage
+                    contexte.closePath(); // fin du tracÃ©   
+                    var chataignier= chataignier+70
+                }
+                contexte.fillStyle = "black";
+                contexte.fillText("Chataignier", 220, 850);
+/////////////////////////////////////////////////////////////////sapins///////////////////////////////////////////////////////////////////     
+
+                var sapinsH= 750    
+                var sapinsL= 650
+                for (let k = 0; k <2; k++){
+                    for (let i = 0; i <10; i++) {
+
+                        contexte.beginPath(); // dÃ©but du tracÃ©
+                        contexte.fillStyle = "green";
+                        contexte.arc(sapinsL, sapinsH, 15, 0, 2*Math.PI, true); // 120=>x; 200=>y; 30 => rayon; 0=>angle de dÃ©part; 2*Math.PI=>angle de fin; true=> sens de rotation
+                        contexte.fill(); // dessin de l'arc avec remplissage
+                        contexte.closePath(); // fin du tracÃ©   
+                        var sapinsL= sapinsL+70
+                        var sapinsH= sapinsH-10
+                    }
+                    var sapinsH=750+100
+                    var sapinsL=650
+                }
+                contexte.fillStyle = "black";
+                contexte.fillText("Sapins", 600, 880);  
+                canevas.addEventListener("mousedown", detecterChambre, false); // on associe la fonction detecterChambre à l'événement "mousedown"
+/////////////////////////////////////////////////////////////////Piscine///////////////////////////////////////////////////////////////////
+
+                contexte.fillStyle = "blue";// ne pas oublier les guillemets
+                contexte.fillRect(420, 500, 300, 100);
+                contexte.fillStyle = "black";
+                contexte.fillText("Piscine", 500, 540);            
+                var xhr = new XMLHttpRequest(); // instanciation d'un objet XMLHttpRequest
+                
+                xhr.onreadystatechange = function() {
+                    // gestion de la réponse du serveur
+                    if (xhr.readyState == 4  &&  xhr.status == 200) {
+                        // récupération de la réponse du serveur au format XML
+                        var xml = xhr.responseXML; // et non pas xhr.responseText
+                        
+                        // récupération des éléments ou noeuds nommés "chambre" sous forme d'un tableau                    
+                        var chambres = xml.getElementsByTagName("chambre");
+                        
+                        // pour toutes les chambres de la collection chambres   
+                          
+                        for (chambre of chambres) {
+                            var numero = parseInt(chambre.children[0].textContent);
+                            if (chambre.children[1].textContent == "reserve") {
+                                var couleur = "red";
+                            }else if (chambre.children[1].textContent == "libre") {
+                                var couleur = "green";
+                            }else if (chambre.children[1].textContent =="reception"){
+                                var couleur="grey";
+                            }
+
+
+                            
+                            if (tabChambresType[numero] == 'normale') {
+                                dessinerUneChambre(numero, tabChambresX[numero], tabChambresY[numero], couleur);
+                            } else if (tabChambresType[numero] == 'grande horizontale') {
+                                dessinerUneGrandeChambreHorizontale(numero, tabChambresX[numero], tabChambresY[numero], couleur);
+                            } else if (tabChambresType[numero] == 'grande verticale') {
+                                dessinerUneGrandeChambreVerticale(numero, tabChambresX[numero], tabChambresY[numero], couleur);
+                            }
+                              else if (tabChambresType[numero] == 'reception') {
+                                dessinerReception("reception", tabChambresX[numero], tabChambresY[numero], couleur);
+                            } else if (tabChambresType[numero] == 'suite'){
+                                dessinerSuite(numero, tabChambresX[numero], tabChambresY[numero], couleur);
+                            }
+                        }
+                    }                    
+                }
+                
+                xhr.open("GET", "traitement-v5.php?date="+ date +"&etage=" + etage, true); // préparation de la requête HTTP (ici la méthode GET, appel d'un script PHP avec un paramètre)
+                xhr.send(); // envoi de la requête HTTP
+            }
+            
+            
+            function dessinerUneChambre(numero, x, y, couleur) {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = couleur;
+                contexte.fillRect (x, y, LARGEUR, HAUTEUR);  // dessin d'un rectangle de la taille d'une chambre
+                
+                contexte.fillStyle = "black";  // couleur du texte
+                contexte.fillText(numero, x + LARGEUR / 2, y + HAUTEUR / 2);                
+            }
+            
+            function dessinerUneGrandeChambreHorizontale(numero, x, y, couleur) {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = couleur;
+                contexte.fillRect (x, y, LARGEUR * 2 + ECART, HAUTEUR);  // dessin d'un rectangle de la taille d'une chambre
+                
+                contexte.fillStyle = "black";  // couleur du texte
+                contexte.fillText(numero, x + LARGEUR - ECART, y + HAUTEUR / 2);                
+            }
+            function dessinerSuite(numero, x, y, couleur) {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = couleur;
+                contexte.fillRect (x, y, LARGEUR * 2 + ECART, HAUTEUR * 2+ ECART);  // dessin d'un rectangle de la taille d'une chambre
+                
+                contexte.fillStyle = "black";  // couleur du texte
+                contexte.fillText(numero, x + LARGEUR / 2 - ECART, y + HAUTEUR / 2);                
+            }
+            
+            function dessinerReception(numero, x, y, couleur) {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = couleur;
+                contexte.fillRect (x, y, LARGEUR, HAUTEUR * 2 + ECART);  // dessin d'un rectangle de la taille d'une chambre
+                
+                contexte.fillStyle = "black";  // couleur du texte
+                contexte.fillText(numero, x + LARGEUR / 4, y + HAUTEUR  - ECART);                
+            }
+
+            function dessinerUneGrandeChambreVerticale(numero, x, y, couleur) {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = couleur;
+                contexte.fillRect (x, y, LARGEUR, HAUTEUR * 2 + ECART);  // dessin d'un rectangle de la taille d'une chambre
+                
+                contexte.fillStyle = "black";  // couleur du texte
+                contexte.fillText(numero, x + LARGEUR / 2, y + HAUTEUR  - ECART);                
+            }
+            
+            function getCoordonnees(el, event) {
+                var ox = -el.offsetLeft;
+                var oy = -el.offsetTop;
+                while(el=el.offsetParent) {
+                    ox += el.scrollLeft - el.offsetLeft;
+                    oy += el.scrollTop - el.offsetTop;
+                }
+                return {x:event.clientX + ox, y:event.clientY + oy};
+            }
+            
+            function detecterChambre(e) {
+                var coordonnees = getCoordonnees(this, e);
+                //alert("Les coordonnées de la souris dans le canevas sont X:"+coordonnees.x+" et Y:"+coordonnees.y);
+                
+                //alert(document.getElementById("choix-etage").value);    
+                var date = document.getElementById("laDate").value;            
+                var etage = document.getElementById("choix-etage").value;
+                if (etage == "RDC") {
+                    // cas du rez-de-chaussée
+                    if (coordonnees.x >= tabChambresX[1] && coordonnees.x <= tabChambresX[1] + LARGEUR && coordonnees.y >= tabChambresY[1] && coordonnees.y <= tabChambresY[1] + HAUTEUR) {
+                        afficher(1, date);
+                    } else if (coordonnees.x >= tabChambresX[2] && coordonnees.x <= tabChambresX[2] + LARGEUR && coordonnees.y >= tabChambresY[2] && coordonnees.y <= tabChambresY[2] + HAUTEUR) {
+                        afficher(2, date);
+                    } else if (coordonnees.x >= tabChambresX[3] && coordonnees.x <= tabChambresX[3] + LARGEUR && coordonnees.y >= tabChambresY[3] && coordonnees.y <= tabChambresY[3] + HAUTEUR) {
+                        afficher(3, date);
+                    } else if (coordonnees.x >= tabChambresX[3] && coordonnees.x <= tabChambresX[4] + LARGEUR && coordonnees.y >= tabChambresY[4] && coordonnees.y <= tabChambresY[4] + HAUTEUR) {
+                        afficher(4, date);
+                    } else if (coordonnees.x >= tabChambresX[5] && coordonnees.x <= tabChambresX[5] + (LARGEUR * 2 + ECART) && coordonnees.y >= tabChambresY[5] && coordonnees.y <= tabChambresY[5] + HAUTEUR) {
+                        afficher(5, date);
+                    } else if (coordonnees.x >= tabChambresX[6] && coordonnees.x <= tabChambresX[6] + LARGEUR && coordonnees.y >= tabChambresY[6] && coordonnees.y <= tabChambresY[6] + HAUTEUR) {
+                        afficher(6, date);
+                    } else if (coordonnees.x >= tabChambresX[7] && coordonnees.x <= tabChambresX[7] + LARGEUR && coordonnees.y >= tabChambresY[7] && coordonnees.y <= tabChambresY[7] + HAUTEUR) {
+                        afficher(7, date);
+                    } else if (coordonnees.x >= tabChambresX[8] && coordonnees.x <= tabChambresX[8] + LARGEUR && coordonnees.y >= tabChambresY[8] && coordonnees.y <= tabChambresY[8] + HAUTEUR) {
+                        afficher(8, date);
+                    } else if (coordonnees.x >= tabChambresX[9] && coordonnees.x <= tabChambresX[9] + LARGEUR && coordonnees.y >= tabChambresY[9] && coordonnees.y <= tabChambresY[9] + HAUTEUR) {
+                        afficher(9, date);
+                    } else if (coordonnees.x >= tabChambresX[10] && coordonnees.x <= tabChambresX[10] + LARGEUR && coordonnees.y >= tabChambresY[10] && coordonnees.y <= tabChambresY[10] + (HAUTEUR * 2 + ECART)) {
+                        afficher(10, date);
+                    } else if (coordonnees.x >= tabChambresX[11] && coordonnees.x <= tabChambresX[11] + LARGEUR && coordonnees.y >= tabChambresY[11] && coordonnees.y <= tabChambresY[11] + HAUTEUR) {
+                        afficher(11, date);
+                    } else if (coordonnees.x >= tabChambresX[12] && coordonnees.x <= tabChambresX[12] + LARGEUR && coordonnees.y >= tabChambresY[12] && coordonnees.y <= tabChambresY[12] + HAUTEUR) {
+                        afficher(12, date);
+                    } else if (coordonnees.x >= tabChambresX[13] && coordonnees.x <= tabChambresX[13] + (LARGEUR * 2 + ECART) && coordonnees.y >= tabChambresY[13] && coordonnees.y <= tabChambresY[13] + HAUTEUR) {
+                        afficher(13, date);
+                    } 
+                } else if (etage == "1") {
+                    if (coordonnees.x >= tabChambresX[101] && coordonnees.x <= tabChambresX[101] + LARGEUR && coordonnees.y >= tabChambresY[101] && coordonnees.y <= tabChambresY[101] + HAUTEUR) {
+                        afficher(101, date);
+                    } else if (coordonnees.x >= tabChambresX[102] && coordonnees.x <= tabChambresX[102] + LARGEUR && coordonnees.y >= tabChambresY[102] && coordonnees.y <= tabChambresY[102] + HAUTEUR) {
+                        afficher(102, date);
+                    } else if (coordonnees.x >= tabChambresX[103] && coordonnees.x <= tabChambresX[103] + (LARGEUR * 2 + ECART)  && coordonnees.y >= tabChambresY[103] && coordonnees.y <= tabChambresY[103] + HAUTEUR) {
+                        afficher(103, date);
+                    } else if (coordonnees.x >= tabChambresX[104] && coordonnees.x <= tabChambresX[104] + LARGEUR && coordonnees.y >= tabChambresY[104] && coordonnees.y <= tabChambresY[104] + HAUTEUR) {
+                        afficher(104, date);
+                    } else if (coordonnees.x >= tabChambresX[105] && coordonnees.x <= tabChambresX[105] + (LARGEUR) && coordonnees.y >= tabChambresY[105] && coordonnees.y <= tabChambresY[105] + HAUTEUR) {
+                        afficher(105, date);
+                    } else if (coordonnees.x >= tabChambresX[106] && coordonnees.x <= tabChambresX[106] + LARGEUR && coordonnees.y >= tabChambresY[106] && coordonnees.y <= tabChambresY[106] + HAUTEUR) {
+                        afficher(106, date);
+                    } else if (coordonnees.x >= tabChambresX[107] && coordonnees.x <= tabChambresX[107] + LARGEUR && coordonnees.y >= tabChambresY[107] && coordonnees.y <= tabChambresY[107] + HAUTEUR) {
+                        afficher(107, date);
+                    } else if (coordonnees.x >= tabChambresX[108] && coordonnees.x <= tabChambresX[108] + LARGEUR && coordonnees.y >= tabChambresY[108] && coordonnees.y <= tabChambresY[108] + HAUTEUR) {
+                        afficher(108, date);
+                    } else if (coordonnees.x >= tabChambresX[109] && coordonnees.x <= tabChambresX[109] + LARGEUR && coordonnees.y >= tabChambresY[109] && coordonnees.y <= tabChambresY[109] + HAUTEUR) {
+                        afficher(109, date);
+                    } else if (coordonnees.x >= tabChambresX[110] && coordonnees.x <= tabChambresX[110] + LARGEUR && coordonnees.y >= tabChambresY[110] && coordonnees.y <= tabChambresY[110] + HAUTEUR) {
+                        afficher(110, date);
+                    } else if (coordonnees.x >= tabChambresX[111] && coordonnees.x <= tabChambresX[111] + LARGEUR && coordonnees.y >= tabChambresY[111] && coordonnees.y <= tabChambresY[111] + (HAUTEUR)) {
+                        afficher(111, date);
+                    } else if (coordonnees.x >= tabChambresX[112] && coordonnees.x <= tabChambresX[112] + LARGEUR && coordonnees.y >= tabChambresY[112] && coordonnees.y <= tabChambresY[112] + HAUTEUR) {
+                        afficher(112, date);
+                    } else if (coordonnees.x >= tabChambresX[113] && coordonnees.x <= tabChambresX[113] + (LARGEUR * 2 + ECART) && coordonnees.y >= tabChambresY[113] && coordonnees.y <= tabChambresY[113] + (HAUTEUR * 2 +ECART)) {
+                        afficher(113, date);
+                    } 
+                } else if (etage == "2") {
+
+                    // cas du 2e étage 
+                     if (coordonnees.x >= tabChambresX[201] && coordonnees.x <= tabChambresX[201] + (LARGEUR * 2 + ECART) && coordonnees.y >= tabChambresY[201] && coordonnees.y <= tabChambresY[201] + (HAUTEUR * 2 +ECART)) {
+                        afficher(201, date);
+                    } else if (coordonnees.x >= tabChambresX[202] && coordonnees.x <= tabChambresX[202] + (LARGEUR * 2 + ECART) && coordonnees.y >= tabChambresY[202] && coordonnees.y <= tabChambresY[202] + HAUTEUR) {
+                        afficher(202, date);
+                    } else if (coordonnees.x >= tabChambresX[203] && coordonnees.x <= tabChambresX[203] + (LARGEUR * 2 + ECART) && coordonnees.y >= tabChambresY[203] && coordonnees.y <= tabChambresY[203] + HAUTEUR) {
+                        afficher(203, date);
+                    } else if (coordonnees.x >= tabChambresX[204] && coordonnees.x <= tabChambresX[204] + LARGEUR && coordonnees.y >= tabChambresY[204] && coordonnees.y <= tabChambresY[204] + HAUTEUR) {
+                        afficher(204, date);
+                    } else if (coordonnees.x >= tabChambresX[205] && coordonnees.x <= tabChambresX[205] + LARGEUR && coordonnees.y >= tabChambresY[205] && coordonnees.y <= tabChambresY[205] + HAUTEUR) {
+                        afficher(205, date);
+                    } else if (coordonnees.x >= tabChambresX[206] && coordonnees.x <= tabChambresX[206] + LARGEUR && coordonnees.y >= tabChambresY[206] && coordonnees.y <= tabChambresY[206] + (HAUTEUR * 2 +ECART)) {
+                        afficher(206, date);
+                    } else if (coordonnees.x >= tabChambresX[207] && coordonnees.x <= tabChambresX[207] + LARGEUR && coordonnees.y >= tabChambresY[207] && coordonnees.y <= tabChambresY[207] + HAUTEUR) {
+                        afficher(207, date);
+                    } else if (coordonnees.x >= tabChambresX[208] && coordonnees.x <= tabChambresX[208] + LARGEUR && coordonnees.y >= tabChambresY[208] && coordonnees.y <= tabChambresY[208] + HAUTEUR) {
+                        afficher(208, date);
+                    } else if (coordonnees.x >= tabChambresX[209] && coordonnees.x <= tabChambresX[209] + (LARGEUR * 2 + ECART)  && coordonnees.y >= tabChambresY[209] && coordonnees.y <= tabChambresY[209] + (HAUTEUR * 2 +ECART)) {
+                        afficher(209, date);
+                    } 
+                }
+                
+                
+                
+                
+            }
+
+            function afficher(nChambre, date) {
+                var xhr = new XMLHttpRequest(); // instanciation d'un objet XMLHttpRequest
+                
+                xhr.onreadystatechange = function() // gestion de la réponse du serveur
+                {
+                    if (xhr.readyState==4 && xhr.status==200) {
+                        document.getElementById('info').innerHTML = xhr.responseText; // modification du contenu de la page web
+                    }
+                }
+            
+                xhr.open("GET", "info_chambre.php?nChambre=" + nChambre + "&date=" + date, true); // préparation de la requête HTTP (ici la méthode GET, appel d'un script PHP avec un paramètre)
+                xhr.send(); // envoi de la requête HTTP
+            }
+            function ajout(){
+                var nom = document.getElementById("nom").value;
+                var prenom = document.getElementById("prenom").value;
+                var numero = document.getElementById("numero").value;
+                var ville = document.getElementById("ville").value;
+                var date = document.getElementById("laDate").value;
+                var taille = document.getElementById("taille").value;
+                ajoutClient(nom, prenom, numero, taille, ville, date);
+            }
+            function ajoutClient(nom, prenom, numero, taille, ville, date) {
+                var xhr = new XMLHttpRequest(); // instanciation d'un objet XMLHttpRequest
+                xhr.onreadystatechange = function() // gestion de la réponse du serveur
+                {
+                    if (xhr.readyState==4 && xhr.status==200) {
+                        document.getElementById('info').innerHTML = xhr.responseText; // modification du contenu de la page web
+                    }
+                }
+            
+                xhr.open("GET", "ajout.php?nom=" + nom + "&prenom=" + prenom + "&numero=" + numero + "&taille=" + taille + "&ville=" + ville + "&date=" + date, true); // préparation de la requête HTTP (ici la méthode GET, appel d'un script PHP avec un paramètre)
+                xhr.send(); // envoi de la requête HTTP
+            }
+            function suppression(){
+                var nom = document.getElementById("nom").value;
+                var prenom = document.getElementById("prenom").value;
+                var ville = document.getElementById("ville").value;
+                var date = document.getElementById("laDate").value;
+                suppressionClient(nom, prenom, ville, date);
+            }
+            function suppressionClient(nom, prenom, ville, date) {
+                var xhr = new XMLHttpRequest(); // instanciation d'un objet XMLHttpRequest
+                xhr.onreadystatechange = function() // gestion de la réponse du serveur
+                {
+                    if (xhr.readyState==4 && xhr.status==200) {
+                        document.getElementById('info').innerHTML = xhr.responseText; // modification du contenu de la page web
+                    }
+                }
+            
+                xhr.open("GET", "suppression.php?nom=" + nom + "&prenom=" + prenom + "&ville=" + ville + "&date=" + date , true); // préparation de la requête HTTP (ici la méthode GET, appel d'un script PHP avec un paramètre)
+                xhr.send(); // envoi de la requête HTTP
+            }
+        </script>
+
+        <canvas id="canevas" width="1400" height="900"></canvas>
+        <div class="form-row">
+           <div class="form-group col-md-6">
+               <select id="choix-etage" class="custom-select custom-select-lg mb-3" onclick="affichage()">
+                   <option value="RDC">Rez-de-chaussée</option>
+                   <option value="1">1er étage</option>
+                   <option value="2">2e étage</option>            
+               </select>
+            </div>
+               <label for="laDate">Choisir la date : </label>
+               <input id="laDate" type="date" name="laDate" onChange="affichage()" />
+            
+        </div>
+
+        <div id="info">
+        </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>   
+
+    </body>
 </html>

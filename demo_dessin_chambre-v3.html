@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Démo canvas 4</title>
+        <meta charset="UTF-8" />    
+    </head>
+    <body>
+
+
+        <script type="application/javascript" >
+            // utilisation d'une fonction pour dessiner les chambres
+            
+            // on peut écrire une fonction pour dessiner les grandes chambres
+            // et une fonction pour les suites
+            
+            const CHAMBRE_LARGEUR = 75; // largeur d'une chambre
+            const CHAMBRE_LONGUEUR = 75; // longueur d'une chambre
+            const CHAMBRE_ECART = 15; // écart entre les chambres        
+            
+            function dessiner() {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = "rgb(180, 180, 180)";  // couleur RGB qui sera utilisé dans les dessins suivants
+                contexte.fillRect (0, 0, canevas.width, canevas.height);  // dessin d'un rectangle de la taille du canevas
+
+
+                dessinerUneChambre(1, 100, 100, "green");
+                dessinerUneChambre(3, 145, 100, "red");
+                dessinerUneChambre(9, 275, 100, "red");
+                dessinerUneChambre(2, 100, 150, "green");
+                
+                dessinerUneGrandeChambreHorizontale(5, 190, 100, "green");
+                dessinerUneGrandeChambreVerticale(10, 275, 190, "green");
+            }
+            
+            function dessinerUneChambre(numero, x, y, couleur) {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = couleur;
+                contexte.fillRect (x, y, CHAMBRE_LARGEUR, CHAMBRE_LONGUEUR);  // dessin d'un rectangle de la taille d'une chambre
+                
+                contexte.fillStyle = "black";  // couleur du texte
+                contexte.fillText(numero, x + CHAMBRE_LARGEUR / 2, y + CHAMBRE_LONGUEUR / 2);                
+            }
+            
+            function dessinerUneGrandeChambreHorizontale(numero, x, y, couleur) {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = couleur;
+                contexte.fillRect (x, y, CHAMBRE_LARGEUR * 2, CHAMBRE_LONGUEUR);  // dessin d'un rectangle de la taille d'une chambre
+                
+                contexte.fillStyle = "black";  // couleur du texte
+                contexte.fillText(numero, x + CHAMBRE_LARGEUR - CHAMBRE_ECART, y + CHAMBRE_LONGUEUR / 2);                
+            }
+            
+            function dessinerUneGrandeChambreVerticale(numero, x, y, couleur) {
+                var canevas = document.getElementById("canevas"); // toile sur laquelle on va dessiner
+                var contexte = canevas.getContext("2d"); // 2d et non pas 2D !
+                contexte.fillStyle = couleur;
+                contexte.fillRect (x, y, CHAMBRE_LARGEUR, CHAMBRE_LONGUEUR * 2);  // dessin d'un rectangle de la taille d'une chambre
+                
+                contexte.fillStyle = "black";  // couleur du texte
+                contexte.fillText(numero, x + CHAMBRE_LARGEUR / 2, y + CHAMBRE_LONGUEUR  - CHAMBRE_ECART);                
+            }
+        </script>
+
+        <canvas id="canevas" width="600" height="300"></canvas>
+
+        <input id="bouton" type="button" value="Dessiner" onClick="dessiner()"/>
+
+    </body>
+</html>
